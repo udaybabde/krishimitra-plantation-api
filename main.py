@@ -2,6 +2,14 @@ from fastapi import FastAPI
 from pydantic import BaseModel
 
 app = FastAPI()
+from fastapi.middleware.cors import CORSMiddleware
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 # Real agro-climatic requirement ranges for perennial plantation crops
 crop_requirements = {
